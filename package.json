@@ -7,7 +7,7 @@
     "backend": "cd backend && npm run dev"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"   
+    "concurrently": "^8.2.2"
   },
   "description": "",
   "main": "index.js",
@@ -15,4 +15,5 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs"
+  
 }
