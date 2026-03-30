@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
+app.use(cors());
 require('./config/connect.js');
 const port = 3000;
 const movieroutes = require('./routes/movieroutes.js');
