@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Home = ({ movies, mylist, toggleMyList, isInMyList }) => {
+const Home = ({ movies,  toggleMyList, isInMyList }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchCategory, setSearchCategory] = useState('');
 

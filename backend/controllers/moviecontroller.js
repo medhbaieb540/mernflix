@@ -120,5 +120,12 @@ const welcome = (req, res) => {
 };
 const getmoviesid = (req, res) => {
   const id = parseInt(req.params.id);
+  const movie = movies.find(m => m.id === id);
+
+  if (movie) {
+    res.json(movie);
+  } else {
+    res.status(404).json({ message: "Movie not found" });
+  }
 };
 module.exports = { getmovies, welcome, getmoviesid };

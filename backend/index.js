@@ -5,7 +5,7 @@ app.use(cors());
 require('./config/connect.js');
 const port = 3000;
 const movieroutes = require('./routes/movieroutes.js');
-app.use('/', movieroutes);
+app.use('/api', movieroutes);
 
 app.listen(port, () => {
   console.log(`Server is running → http://localhost:${port}`)

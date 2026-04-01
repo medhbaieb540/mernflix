@@ -1,4 +1,5 @@
-const MyList = ({ mylist, toggleMyList, isInMyList }) => {
+
+const MyList = ({ mylist, toggleMyList }) => {
   return (
     <div className="pt-24 px-8 md:px-12">
       <h2 className="text-3xl font-semibold mb-8">My List ({mylist.length})</h2>

@@ -1,13 +1,34 @@
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-const MovieDetail = ({ movies, toggleMyList, isInMyList }) => {
+const MovieDetail = ({  toggleMyList, isInMyList }) => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [movie, setMovie] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    fetch(`http://localhost:3000/api/movies/${id}`)
+      .then(res => {
+        if (!res.ok) throw new Error('Movie not found');
+        return res.json();
+      })
+      .then(data => {
+        setMovie(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, [id]);
+  
+  if (loading) {
+    return <div className="pt-24 text-center text-2xl">Loading...</div>;
+  }
 
-  const movie = movies.find(m => m.id === parseInt(id));
-
-  if (!movie) {
-    return <div className="pt-24 text-center text-2xl">Movie not found</div>;
+  if (error || !movie) {
+    return <div className="pt-24 text-center text-2xl">Error: {error}</div>;
   }
 
   return (
